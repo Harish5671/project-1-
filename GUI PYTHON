@@ -1,0 +1,29 @@
+from tkinter import *
+
+# create a window
+window = Tk()
+
+# set the title of the window
+window.title("Chess Board")
+
+# create a canvas to draw the board
+canvas = Canvas(window, width=400, height=400)
+
+# draw the squares on the board
+square_size = 50
+for row in range(8):
+    for col in range(8):
+        x1 = col * square_size
+        y1 = row * square_size
+        x2 = x1 + square_size
+        y2 = y1 + square_size
+        if (row + col) % 2 == 0:
+            canvas.create_rectangle(x1, y1, x2, y2, fill="white")
+        else:
+            canvas.create_rectangle(x1, y1, x2, y2, fill="gray")
+
+# pack the canvas to the window
+canvas.pack()
+
+# start the main loop
+window.mainloop()
